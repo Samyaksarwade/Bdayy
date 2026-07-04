@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Heart, Sparkles, Lightbulb, Smile, Scissors, Gift, Image, ChevronDown, ChevronUp, RotateCcw } from 'lucide-react';
+import memory1 from './assets/photos/memory1.jpg';
+import memory2 from './assets/photos/memory2.jpg';
+import memory3 from './assets/photos/memory3.jpg';
 
 export default function App() {
   // Navigation States: 'intro' | 'setup' | 'cake' | 'cards' | 'gifts' | 'letter'
@@ -18,9 +21,9 @@ export default function App() {
   const [openedGifts, setOpenedGifts] = useState({});
 
   const introSlides = [
-    { text: "It's your special day.", img: "public/assets/cute-character.png" },
-    { text: "I made a little surprise just for you.", img: "public/assets/cute-character.png" },
-    { text: "Ready to open it?", img: "public/assets/cute-character.png" }
+    { text: "It's your special day.", img: "/assets/cute-character.png" },
+    { text: "I made a little surprise just for you.", img: "/assets/cute-character.png" },
+    { text: "Ready to open it?", img: "/assets/cute-character.png" }
   ];
 
   const wishes = [
@@ -122,7 +125,7 @@ export default function App() {
               )}
               
               <div className="w-36 h-36 my-2 z-10 flex items-center justify-center relative">
-                <img src={setupPhase >= 2 ? "public/assets/cupcake-panda.png" : "public/assets/cute-character.png"} alt="Panda Guest" className={`max-w-full max-h-full object-contain transition-all duration-500 ${setupPhase >= 1 ? 'opacity-100 scale-100' : 'opacity-20 scale-90 grayscale'}`} />
+                <img src={setupPhase >= 2 ? "/assets/cupcake-panda.png" : "/assets/cute-character.png"} alt="Panda Guest" className={`max-w-full max-h-full object-contain transition-all duration-500 ${setupPhase >= 1 ? 'opacity-100 scale-100' : 'opacity-20 scale-90 grayscale'}`} />
               </div>
 
               {setupPhase === 4 && (
@@ -230,7 +233,7 @@ export default function App() {
               </button>
               {albumOpen && (
                 <div className="grid grid-cols-1 gap-3 mt-3 animate-fade-in">
-                  {['src/assets/photos/memory1.jpg', 'src/assets/photos/memory2.jpg', 'src/assets/photos/memory3.jpg'].map((src, index) => (
+                  {[memory1, memory2, memory3].map((src, index) => (
                     <div key={index} className="overflow-hidden rounded-xl border border-white bg-white/40 p-1.5 shadow-sm">
                       <img src={src} alt={`Memory ${index + 1}`} className="w-full h-36 object-cover rounded-lg" onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.innerHTML = `<div class="w-full h-36 bg-pink-100/50 rounded-lg flex items-center justify-center text-xs font-medium text-pink-400">Memory Card ${index + 1} 💖</div>`; }} />
                     </div>
