@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar to keep everything looking soft and pastel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FFE5EC;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFB3C1;
+  border-radius: 10px;
+}
+/* Add this at the bottom of your src/index.css file */
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Ensure smooth custom layout transitions */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+/* Add this at the absolute bottom of your src/index.css file */
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100%) scale(0.7);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-500px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.animate-balloon-rise {
+  animation: floatUp 4s ease-in forwards;
+}
+/* Add this at the absolute bottom of your src/index.css file */
+
+@keyframes giftShake {
+  0%, 100% { transform: rotate(0deg); }
+  20%, 60% { transform: rotate(-8deg); }
+  40%, 80% { transform: rotate(8deg); }
+}
+
+@keyframes popReveal {
+  0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+  70% { transform: scale(1.2) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-gift-shake {
+  animation: giftShake 0.6s ease-in-out infinite;
+}
+
+.animate-pop-reveal {
+  animation: popReveal 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
